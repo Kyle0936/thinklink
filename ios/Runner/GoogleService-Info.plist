@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>910973758740-qc3ghke1v8hag7sbnhpg60cddf96l37j.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.910973758740-qc3ghke1v8hag7sbnhpg60cddf96l37j</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDSPP7xBRmedZ9QtHH67CjLogtrwrHBIeY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>910973758740</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.thinkLink</string>
+	<key>PROJECT_ID</key>
+	<string>thinklink-2fb01</string>
+	<key>STORAGE_BUCKET</key>
+	<string>thinklink-2fb01.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:910973758740:ios:ec25b92dd17b5efd</string>
+	<key>DATABASE_URL</key>
+	<string>https://thinklink-2fb01.firebaseio.com</string>
+</dict>
+</plist>
