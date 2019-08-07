@@ -35,7 +35,7 @@ class _UsersListState extends State<UsersList> {
 
   @override
   Widget build(BuildContext context) {
-    final title = 'Course List';
+    final title = 'Classmates List';
 
     return new Scaffold(
         appBar: new AppBar(
