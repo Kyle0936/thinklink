@@ -206,7 +206,7 @@ class _HomePageState extends State<HomePage> {
                   docs.documents[i].data['location'].longitude)
               .then((dis) {
             print("Distance: " + dis.toString());
-            if (dis < threshold) {
+            if (dis > -1) { // TODO: temp for testing
               _updateDatabase(docs.documents[i].documentID,
                   docs.documents[i].data['users there']);
             }
@@ -226,6 +226,18 @@ class _HomePageState extends State<HomePage> {
         .updateData({
       'users there': numOfUsers,
     });
+    String userId = 'test';// TODO: use actual current user's id
+    DocumentReference ref = Firestore.instance
+        .collection('Markers')
+        .document('UW-Madison')
+        .collection('places')
+        .document(id)
+        .collection('users')
+        .document(userId);
+
+        ref.setData({
+          'start': DateTime.now(),
+        });
   }
 
   _initCurrentLocation() async {
