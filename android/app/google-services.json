@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "910973758740",
+    "firebase_url": "https://thinklink-2fb01.firebaseio.com",
+    "project_id": "thinklink-2fb01",
+    "storage_bucket": "thinklink-2fb01.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:910973758740:android:cef8d9b80ca034f7",
+        "android_client_info": {
+          "package_name": "com.example.thinklink"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "910973758740-ttr1s8gv7l3v1sp9g0ncen3n2v5e8o0f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSEooz1yl-RxVJyqyY6zvnPENXGnebKms"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "910973758740-ttr1s8gv7l3v1sp9g0ncen3n2v5e8o0f.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "910973758740-qc3ghke1v8hag7sbnhpg60cddf96l37j.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.thinkLink"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

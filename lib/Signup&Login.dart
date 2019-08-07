@@ -49,7 +49,7 @@ class _LoginPageState extends State<LoginPage> {
                     Navigator.push(
                       context,
                       new MaterialPageRoute(
-                          builder: (context) => new MainWidget()),// didn't log in
+                          builder: (context) => new LimitedHomepage()),// didn't log in
                     );
                   },
                 ),
@@ -140,7 +140,7 @@ class _SignupPageState extends State<SignupPage> {
                   Navigator.push(
                     context,
                     new MaterialPageRoute(
-                        builder: (context) => new MainWidget()),
+                        builder: (context) => new LimitedHomepage()),
                   );
                 },
               ),

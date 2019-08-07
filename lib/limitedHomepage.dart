@@ -3,20 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import './Signup&Login.dart';
 
-class MainWidget extends StatefulWidget {
-  MainWidget({Key key}) : super(key: key);
+class LimitedHomepage extends StatefulWidget {
+  LimitedHomepage({Key key}) : super(key: key);
 
   @override
-  _MainWidgetState createState() => _MainWidgetState();
+  _LimitedHomepageState createState() => _LimitedHomepageState();
 }
 
-class _MainWidgetState extends State<MainWidget> {
-  int _count = 0;
+class _LimitedHomepageState extends State<LimitedHomepage> {
   GoogleMapController mapController;
   static const LatLng _center = const LatLng(43.073051, -89.401230);
-  // Completer<GoogleMapController> _controller = Completer();
-
-  var clients = [];
 
   var currentClient;
   var currentBearing;
@@ -25,7 +21,7 @@ class _MainWidgetState extends State<MainWidget> {
   MarkerId selectedMarker;
   int _markerIdCounter = 1;
 
-  void initState(){
+  void initState() {
     super.initState();
     setState(() {
       populateClients();
@@ -33,21 +29,26 @@ class _MainWidgetState extends State<MainWidget> {
   }
 
   populateClients() {
-    clients = [];
-    Firestore.instance.collection('markers').getDocuments().then((docs) {
+    // clients = [];
+    Firestore.instance
+        .collection('Markers')
+        .document('UW-Madison')
+        .collection('places')
+        .getDocuments()
+        .then((docs) {
       if (docs.documents.isNotEmpty) {
         setState(() {
-          // clientsToggle = true;
+          print("success");
         });
         for (int i = 0; i < docs.documents.length; ++i) {
-          clients.add(docs.documents[i].data);
+          // clients.add(docs.documents[i].data);
           initMarker(docs.documents[i].data);
         }
       }
     });
   }
 
-   initMarker(client) {
+  initMarker(client) {
     // mapController.clearMarkers().then((val) {
     //   mapController.addMarker(MarkerOptions(
     //       position:
@@ -55,11 +56,22 @@ class _MainWidgetState extends State<MainWidget> {
     //       draggable: false,
     //       infoWindowText: InfoWindowText(client['clientName'], 'Nice')));
     // });
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
+    final String markerIdVal = 'marker_id_$_markerIdCounter';
+    _markerIdCounter++;
+    print("marker ID: " + _markerIdCounter.toString());
+    final MarkerId markerId = MarkerId(markerIdVal);
+    final Marker marker = Marker(
+      markerId: markerId,
+      position:
+          LatLng(client['location'].latitude, client['location'].longitude),
+      infoWindow: InfoWindow(title: client['name'], snippet: 'There are currently ' + client['users there'].toString() + ' users here.'),
+      onTap: () {
+        _onMarkerTapped(markerId);
+      },
+    );
+    setState(() {
+      markers[markerId] = marker;
+    });
   }
 
   void _onMarkerTapped(MarkerId markerId) {
@@ -82,12 +94,11 @@ class _MainWidgetState extends State<MainWidget> {
     }
   }
 
-
-
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('ThinkLink'),
+        backgroundColor: Colors.blue[700],
       ),
       body: Stack(
         children: <Widget>[
@@ -101,7 +112,7 @@ class _MainWidgetState extends State<MainWidget> {
           ),
           Padding(
             padding: const EdgeInsets.all(16.0),
-            child:null,
+            child: null,
           )
         ],
 //          _widgetOptions.elementAt(_selectedIndex),
@@ -130,14 +141,6 @@ class _MainWidgetState extends State<MainWidget> {
           ],
         ),
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: () => setState(() {
-      //         _count++;
-      //       }),
-      //   tooltip: 'Increment Counter',
-      //   child: Icon(Icons.add),
-      // ),
-      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 
